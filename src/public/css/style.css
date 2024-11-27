@@ -1,0 +1,163 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: linear-gradient(90deg, #e2e2e2, #c9d6ff);
+}
+
+/* Bem-vindo Page */
+.form-container {
+    text-align: center;
+    background: #fff;
+    padding: 50px 20px;
+    border-radius: 30px;
+    box-shadow: 0 0 30px rgba(0, 0, 0, .2);
+    width: 700px; /* Contêiner mais largo */
+}
+
+.form-container h1 {
+    font-size: 3rem; /* Maior destaque para o título */
+    color: #0056b3; /* Cor destacada */
+    margin-bottom: 20px;
+    text-transform: uppercase; /* Letras maiúsculas */
+    letter-spacing: 2px; /* Espaçamento entre letras */
+}
+
+.form-container label {
+    font-size: 1.2rem; /* Maior tamanho para os rótulos */
+    font-weight: 600;
+    color: #333;
+    display: block;
+    margin-bottom: 5px;
+    text-align: left; /* Alinhado à esquerda */
+}
+
+.form-container input, 
+.form-container select {
+    width: 100%;
+    padding: 12px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+.form-container input:focus, 
+.form-container select:focus {
+    border-color: #7494ec; /* Destaque ao focar */
+    box-shadow: 0 0 5px rgba(116, 148, 236, 0.5);
+}
+
+.form-container button {
+    padding: 15px 30px;
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #fff;
+    background: #7494ec;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.form-container button:hover {
+    background: #0056b3; /* Cor mais escura no hover */
+}
+
+/* Checkbox Page */
+.checkbox-container {
+    text-align: center;
+    background: #fff;
+    padding: 40px 20px;
+    border-radius: 20px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, .1);
+    width: 700px; /* Contêiner mais largo */
+}
+
+.checkbox-container h1 {
+    font-size: 2.5rem; /* Destaque para o título */
+    color: #0056b3;
+    margin-bottom: 20px;
+}
+
+.checkbox-container form {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+}
+
+.checkbox-container label {
+    font-size: 1.2rem;
+    color: #555;
+}
+
+.checkbox-container input[type="checkbox"] {
+    margin-right: 10px;
+    transform: scale(1.2);
+}
+
+.checkbox-container button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 1rem;
+    font-weight: 700;
+    color: #fff;
+    background: #7494ec;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.checkbox-container button:hover {
+    background: #0056b3;
+}
+
+/* Responsividade */
+@media screen and (max-width: 650px) {
+    .form-container,
+    .checkbox-container {
+        width: calc(100% - 40px); /* Ajuste responsivo */
+        padding: 30px 15px;
+    }
+
+    .form-container h1,
+    .checkbox-container h1 {
+        font-size: 2.2rem; /* Reduzido para dispositivos menores */
+    }
+
+    .form-container label {
+        font-size: 1rem;
+    }
+
+    .form-container button,
+    .checkbox-container button {
+        font-size: 1rem;
+        padding: 10px 15px;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .form-container h1,
+    .checkbox-container h1 {
+        font-size: 2rem;
+    }
+
+    .form-container label,
+    .checkbox-container label {
+        font-size: 1rem;
+    }
+}
+
