@@ -1,5 +1,6 @@
 // Página inicial: redireciona para a página de checkboxes ao clicar no botão "Ir para a página"
-function goToCheckboxPage(event) {
+function goToCheckboxPage(event)
+{
     event.preventDefault(); // Evita o envio padrão do formulário
 
     // Capturando os valores dos campos
