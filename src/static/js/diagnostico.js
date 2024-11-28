@@ -84,7 +84,7 @@ async function submitForm(event)
         <div class="row mb-3"></div>
         <hr/>
 
-        <p class="text-danger">OBS: O diagnóstico fornecido por nós é apenas provisório e pode conter erros. Para maior confiabilidade, procure um médico especialista.</p>
+        <p class="text-danger">OBS: O diagnóstico fornecido por nós é apenas provisório e pode conter erros. A chance dada para o diagnóstico é baseado apenas em nosso banco de dados. Para maior confiabilidade, procure um médico especialista.</p>
         <hr/>
         <btn class="btn btn-success w-100" name="downloadBtn">
             Imprimir
