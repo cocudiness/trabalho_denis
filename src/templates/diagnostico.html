@@ -41,7 +41,7 @@
             <div class="row text-primary">
                 <h1 class="mb-5">Sistema de Diagnostico</h1>
             </div>
-            <form onsubmit="postDiagnostic(event)">
+            <form onsubmit="submitForm(event)">
                 <div class="row mb-3">
                     <div class="col">
                         <div class="input-group">
@@ -57,7 +57,8 @@
                     <div class="col">
                         <div class="input-group">
                             <div class="form-floating">
-                                <input type="number" name="idade" step="1" class="form-control" required>
+                                <input type="number" name="idade" step="1" min="1" max="999" class="form-control"
+                                    required>
                                 <label>Idade</label>
                             </div>
                         </div>
@@ -84,7 +85,8 @@
                     <div class="col">
                         <div class="input-group">
                             <div class="form-floating">
-                                <input type="number" name="peso" step="1" class="form-control" required>
+                                <input type="number" name="peso" step="1" min="1" max="999" class="form-control"
+                                    required>
                                 <label>Peso (kg)</label>
                             </div>
                         </div>
@@ -95,7 +97,8 @@
                     <div class="col">
                         <div class="input-group">
                             <div class="form-floating">
-                                <input type="number" name="altura" step="1" class="form-control" required>
+                                <input type="number" name="altura" step="1" min="1" max="999" class="form-control"
+                                    required>
                                 <label>Altura (cm)</label>
                             </div>
                         </div>
@@ -113,7 +116,7 @@
                     </div>
                 </div>
 
-                <h5 class="mt-4">Sintomas (max 9)</h5>
+                <h5 class="mt-4">Sintomas (max 10)</h5>
                 <div class="row">
                     <div class="col">
                         <div class="input-group ">

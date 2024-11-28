@@ -6,9 +6,9 @@ import os
 app = Flask(__name__)
 prolog = Prolog()
 
-from flask_cors import CORS
-cors = CORS(app) # allow CORS for all domains on all routes.
-app.config['CORS_HEADERS'] = 'Content-Type'
+#from flask_cors import CORS
+#cors = CORS(app) # allow CORS for all domains on all routes.
+#app.config['CORS_HEADERS'] = 'Content-Type'
 
 def findString(src, toFind1 = None, toFind2 = None):
     index1 = 0
