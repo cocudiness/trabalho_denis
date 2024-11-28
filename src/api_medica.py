@@ -1,11 +1,12 @@
-from flask import Flask, request, jsonify
-from flask_cors import CORS, cross_origin
+from flask import Flask, request, jsonify, render_template
 from pyswip import Prolog
+from pathlib import Path
 import os
 
 app = Flask(__name__)
 prolog = Prolog()
 
+from flask_cors import CORS
 cors = CORS(app) # allow CORS for all domains on all routes.
 app.config['CORS_HEADERS'] = 'Content-Type'
 
@@ -29,7 +30,12 @@ def findString(src, toFind1 = None, toFind2 = None):
     return src[index1:index2]
 
 def inicializar_prolog():
-    prolog.consult("medical_diagnosis.pl")
+    print(f"{Path().resolve()}\\medical_diagnosis.pl")
+    prolog.consult(f"medical_diagnosis.pl")
+
+@app.route('/diagnostico', methods=['GET'])
+def diagnostico():
+    return render_template(f"diagnostico.html")
 
 @app.route('/api/sintomas', methods=['GET'])
 def get_sintomas():
@@ -115,8 +121,7 @@ def calcular_imc():
                     item0 = findString(item0, "[", "]")
                     item0 = item0.split(", ")
                     for risco in item0:
-                        print(f"r={item0}")
-                        riscos.append(risco)
+                        riscos.append(risco.replace("'", ""))
             return jsonify({
                 "status": "success",
                 "imc": imc,
@@ -135,4 +140,4 @@ def calcular_imc():
 
 if __name__ == '__main__':
     inicializar_prolog()
-    app.run(debug=True)
+    app.run(debug=True, port=3050)

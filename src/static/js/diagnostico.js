@@ -1,5 +1,5 @@
 //let SINTOMAS = ["Febre", "Dor de cabeca", "Nausea", "Fadiga", "Tosse", "Dor de garganta", "Nariz escorrendo", "Dores no corpo", "Diarreia", "Falta de ar", "Tontura", "Calafrios", "Suor excessivo", "Perda de olfato", "Perda paladar"]
-let BASEURL = "http://127.0.0.1:5000/";
+let BASEURL = "";
 
 $(async function ()
 {
@@ -31,16 +31,16 @@ $(async function ()
     }).focus(function () { $(this).autocomplete("search"); });
 
     // TEMP
-    $(`[name=nome]`).val("Joao");
-    $(`[name=idade]`).val("18");
-    $(`[name=sexo]`).val("masculino");
-    $(`[name=peso]`).val("30");
-    $(`[name=altura]`).val("210");
-    $(`[name=sintoma]`).val("febre");
-
-    tag.add_tag("febre");
-    //tag.add_tag("tosse noturna");
-    //tag.add_tag("falta de ar");
+    /*    
+        $(`[name=nome]`).val("Joao");
+        $(`[name=idade]`).val("18");
+        $(`[name=sexo]`).val("masculino");
+        $(`[name=peso]`).val("30");
+        $(`[name=altura]`).val("210");
+        $(`[name=sintoma]`).val("febre");
+    
+        tag.add_tag("febre");
+    */
     // TEMP
 });
 
