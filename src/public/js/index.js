@@ -99,15 +99,27 @@ async function postDiagnostic(event)
     let riscosStr = riscosArr.join().replaceAll(",", "").replaceAll("'", "");
 
     $('#diagnostico-modal [name=diagnostico]').html(`
-        <h4>Com base nos seus sintomas, voce pode possuir a(s) seguinte(s) doenca(s):</h4>
+        <h4 class="mb-2">Com base nos seus sintomas, voce pode possuir a(s) seguinte(s) doenca(s):</h4>
         ${doencasStr}
-
-        <br>
+         <hr/>
         <h4>Com base no seu peso e altura:</h4>
-        <div class="row"><h5>Seu IMC: <a class="imc">${imc.imc}</a></h5>
-        <div class="row"><h5>Sua classificacao: <a class="imc">${imc.classificacao}</a></h5></row>
-        <div class="row"><h5>Seus riscos:</h5></row>
+        <div class="row">
+            <h5>Seu IMC: 
+                <a class="imc">${imc.imc}</a>
+            </h5>
+        <div class="row">
+            <h5>Sua classificacao: 
+                <a class="imc">${imc.classificacao}</a>
+            </h5>
+        </row>
+        <div class="row">
+            <h5>Seus riscos:</h5>
+        </row>
         ${riscosStr}
+        <div class="row mb-3"></div>
+         <hr/>
+
+        <p class="text-danger">OBS: O diagnóstico fornecido por nós, é apenas provisório e pode conter erros. Para maior confiabilidade, procure um médico especialista.<p>
         `);
     //return;
 }
