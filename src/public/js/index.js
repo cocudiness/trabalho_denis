@@ -12,13 +12,19 @@ $(async function ()
         return;
     }
     let tag = tagger(document.querySelector('[name="sintomas"]'), {
-        allow_duplicates: false, allow_spaces: true, add_on_blur: true, wrap: true, tag_limit: 5, completion: { list: sintomas }
+        allow_duplicates: false, allow_spaces: true, add_on_blur: true, wrap: true, tag_limit: 9, completion: { list: sintomas }
     });
     $(`[name=sintoma]`).autocomplete({
         minLength: 0,
         source: sintomas,
         select: function (event, ui) 
         {
+            let sintomas = $('[name=sintomas]').val().split(",")
+            if (sintomas.length >= 9)
+            {
+                window.alert("Remova um sintoma para adicionar outro");
+                return;
+            }
             $(`[name=sintoma]`).val("");
             tag.add_tag(ui.item.value);
         }
@@ -80,8 +86,6 @@ async function postDiagnostic(event)
     json = await res.json();
     let imc = json;
 
-    $('#diagnostico-modal').modal('show');
-
     let doencasArr = [];
     for (let i = 0; i < diagnostico.diagnosticos.length; i++)
     {
@@ -101,27 +105,42 @@ async function postDiagnostic(event)
     $('#diagnostico-modal [name=diagnostico]').html(`
         <h4 class="mb-2">Com base nos seus sintomas, voce pode possuir a(s) seguinte(s) doenca(s):</h4>
         ${doencasStr}
-         <hr/>
+        <hr/>
+
         <h4>Com base no seu peso e altura:</h4>
         <div class="row">
             <h5>Seu IMC: 
                 <a class="imc">${imc.imc}</a>
             </h5>
+        </div>
+
         <div class="row">
             <h5>Sua classificacao: 
                 <a class="imc">${imc.classificacao}</a>
             </h5>
-        </row>
+        </div>
+
         <div class="row">
             <h5>Seus riscos:</h5>
-        </row>
+        </div>
         ${riscosStr}
         <div class="row mb-3"></div>
-         <hr/>
+        <hr/>
 
-        <p class="text-danger">OBS: O diagnóstico fornecido por nós, é apenas provisório e pode conter erros. Para maior confiabilidade, procure um médico especialista.<p>
+        <p class="text-danger">OBS: O diagnóstico fornecido por nós é apenas provisório e pode conter erros. Para maior confiabilidade, procure um médico especialista.</p>
+        <hr/>
+        <btn class="btn btn-success w-100" name="downloadBtn">
+            Imprimir
+        </btn>
         `);
-    //return;
+
+    $('#diagnostico-modal [name=downloadBtn]').unbind('click');
+    $('#diagnostico-modal [name=downloadBtn]').on('click', () => 
+    {
+        window.print();
+    })
+
+    $('#diagnostico-modal').modal('show');
 }
 
 
