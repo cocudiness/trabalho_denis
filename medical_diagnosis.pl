@@ -1,4 +1,4 @@
-% Base de conhecimento de doenças e sintomas
+% Base de conhecimento de doencas e sintomas
 doenca(gripe, [febre, dor_de_cabeca, coriza, tosse, fadiga]).
 doenca(covid19, [febre, tosse_seca, perda_de_olfato, perda_de_paladar, fadiga]).
 doenca(dengue, [febre_alta, dor_muscular, dor_nas_articulacoes, fadiga, manchas_na_pele]).
@@ -10,7 +10,7 @@ doenca(amigdalite, [dor_de_garganta, febre, dificuldade_para_engolir, ganglios_i
 doenca(asma, [falta_de_ar, chiado_no_peito, tosse_noturna, aperto_no_peito]).
 doenca(tuberculose, [tosse_persistente, febre, perda_de_peso, suor_noturno, fadiga]).
 
-% Regra para diagnosticar doenças com base nos sintomas
+% Regra para diagnosticar doencas com base nos sintomas
 diagnosticar(Sintomas, Doenca, Probabilidade) :-
     doenca(Doenca, SintomasDoenca),
     intersection(Sintomas, SintomasDoenca, SintomasComuns),
@@ -18,7 +18,7 @@ diagnosticar(Sintomas, Doenca, Probabilidade) :-
     length(SintomasDoenca, NumSintomasDoenca),
     Probabilidade is (NumSintomasComuns / NumSintomasDoenca) * 100.
 
-% Regra para obter todas as doenças possíveis com suas probabilidades
+% Regra para obter todas as doencas possiveis com suas probabilidades
 diagnosticar_todas(Sintomas, Diagnosticos) :-
     findall(
         doenca(Doenca, Prob),
@@ -43,22 +43,22 @@ calcular_imc(Peso, Altura, IMC) :-
 classificar_imc(IMC, Classificacao, Riscos) :-
     (   IMC < 18.5 ->
         Classificacao = 'Abaixo do peso',
-        Riscos = ['Risco de desnutrição', 'Problemas de desenvolvimento', 'Sistema imunológico enfraquecido']
+        Riscos = ['Risco de desnutricao', 'Problemas de desenvolvimento', 'Sistema imunologico enfraquecido']
     ;   IMC =< 24.9 ->
         Classificacao = 'Peso normal',
         Riscos = ['Sem riscos significativos associados']
     ;   IMC =< 29.9 ->
         Classificacao = 'Sobrepeso',
         Riscos = [
-            'Aumento do risco de doenças cardíacas', 
+            'Aumento do risco de doencas cardiacas', 
             'Maior probabilidade de diabetes tipo 2', 
-            'Risco elevado de hipertensão', 
+            'Risco elevado de hipertensao', 
             'Problemas articulares'
         ]
     ;   IMC =< 34.9 ->
         Classificacao = 'Obesidade Grau I',
         Riscos = [
-            'Alto risco de doenças cardiovasculares', 
+            'Alto risco de doencas cardiovasculares', 
             'Diabetes tipo 2', 
             'Apneia do sono', 
             'Problemas articulares graves', 
@@ -67,23 +67,23 @@ classificar_imc(IMC, Classificacao, Riscos) :-
     ;   IMC =< 39.9 ->
         Classificacao = 'Obesidade Grau II',
         Riscos = [
-            'Risco muito alto de doenças cardíacas', 
+            'Risco muito alto de doencas cardiacas', 
             'Diabetes tipo 2 severo', 
-            'Problemas respiratórios', 
-            'Maior risco de certos tipos de câncer', 
-            'Redução significativa da expectativa de vida'
+            'Problemas respiratorios', 
+            'Maior risco de certos tipos de cancer', 
+            'Reducao significativa da expectativa de vida'
         ]
     ;   Classificacao = 'Obesidade Grau III (Obesidade Mórbida)',
         Riscos = [
-            'Extremo risco de doenças cardiovasculares', 
-            'Diabetes tipo 2 com complicações', 
-            'Problemas respiratórios graves', 
+            'Extremo risco de doencas cardiovasculares', 
+            'Diabetes tipo 2 com complicacoes', 
+            'Problemas respiratorios graves', 
             'Alto risco de morte prematura', 
-            'Limitações significativas na mobilidade'
+            'Limitacoes significativas na mobilidade'
         ]
     ).
 
-% Função completa de análise de IMC
+% Função completa de analise de IMC
 analisar_imc(Peso, Altura, ResultadoIMC) :-
     calcular_imc(Peso, Altura, IMC),
     % Arredonda o IMC para 2 casas decimais
