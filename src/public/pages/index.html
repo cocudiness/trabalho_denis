@@ -19,14 +19,28 @@
 </head>
 
 <body>
+    <div class="modal fade" id="diagnostico-modal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+        aria-labelledby="diagnostico-modal-label" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-scrollable modal-lg">
+            <div class="modal-content">
+                <div class="modal-header text-primary text-center">
+                    <h2 class="modal-title w-100 diagTitle" id="diagnostico-modal-label">Diagnostico</h2>
+                    <button type="button" class="btn-close" aria-label="Close"></button>
+                </div>
+                <div class="modal-body" name="diagnostico">
+
+                </div>
+            </div>
+        </div>
+    </div>
+
     <div class="form-container">
         <div class="card-body">
 
             <div class="row text-primary">
-                <h1 class="mb-5">Diagnostico</h1>
+                <h1 class="mb-5">Sistema de Diagnostico</h1>
             </div>
-            <form onsubmit="getDiagnostic(event)">
-
+            <form onsubmit="postDiagnostic(event)">
                 <div class="row mb-3">
                     <div class="col">
                         <div class="input-group">
@@ -92,7 +106,7 @@
                         <div class="input-group">
                             <div class="form-floating">
                                 <input type="text" name="sintoma" class="form-control" required>
-                                <label>Escreva um sintoma</label>
+                                <label>Escreva um sintoma por vez</label>
                             </div>
                         </div>
                     </div>

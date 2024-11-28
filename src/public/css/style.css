@@ -16,3 +16,18 @@ body {
     box-shadow: 0 0 30px rgba(0, 0, 0, .2);
     width: 700px;
 }
+
+.imc {
+    text-decoration: none;
+    font-weight: normal;
+    font-size: 16px;
+    color: black;
+}
+
+.imc:hover {
+    color: inherit;
+}
+
+.diagTitle {
+    font-size: 40px;
+}

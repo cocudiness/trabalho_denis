@@ -1,9 +1,13 @@
 from flask import Flask, request, jsonify
+from flask_cors import CORS, cross_origin
 from pyswip import Prolog
 import os
 
 app = Flask(__name__)
 prolog = Prolog()
+
+cors = CORS(app) # allow CORS for all domains on all routes.
+app.config['CORS_HEADERS'] = 'Content-Type'
 
 def findString(src, toFind1 = None, toFind2 = None):
     index1 = 0
@@ -27,7 +31,7 @@ def findString(src, toFind1 = None, toFind2 = None):
 def inicializar_prolog():
     prolog.consult("medical_diagnosis.pl")
 
-@app.route('/sintomas', methods=['GET'])
+@app.route('/api/sintomas', methods=['GET'])
 def get_sintomas():
     try:
         sintomas = list(prolog.query("listar_sintomas(Sintomas)"))
@@ -39,7 +43,7 @@ def get_sintomas():
             })
         return jsonify({
             "status": "error",
-            "message": "Não foi possível obter a lista de sintomas"
+            "message": "Nao foi possível obter a lista de sintomas"
         }), 500
     except Exception as e:
         return jsonify({
@@ -47,7 +51,7 @@ def get_sintomas():
             "message": str(e)
         }), 500
 
-@app.route('/diagnostico', methods=['POST'])
+@app.route('/api/diagnostico', methods=['POST'])
 def get_diagnostico():
     try:
         dados = request.get_json()
@@ -81,7 +85,7 @@ def get_diagnostico():
             "message": str(e)
         }), 500
 
-@app.route('/imc', methods=['POST'])
+@app.route('/api/imc', methods=['POST'])
 def calcular_imc():
     try:
         dados = request.get_json()
@@ -121,7 +125,7 @@ def calcular_imc():
             })
         return jsonify({
             "status": "error",
-            "message": "Nao foi possível calcular o IMC"
+            "message": "Nao foi possivel calcular o IMC"
         }), 500
     except Exception as e:
         return jsonify({
