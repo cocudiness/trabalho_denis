@@ -25,8 +25,7 @@ def findString(src, toFind1 = None, toFind2 = None):
     return src[index1:index2]
 
 def inicializar_prolog():
-    prolog_file = "medical_diagnosis.pl"
-    prolog.consult(prolog_file)
+    prolog.consult("medical_diagnosis.pl")
 
 @app.route('/sintomas', methods=['GET'])
 def get_sintomas():
