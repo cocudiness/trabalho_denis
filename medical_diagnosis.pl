@@ -73,7 +73,7 @@ classificar_imc(IMC, Classificacao, Riscos) :-
             'Maior risco de certos tipos de cancer', 
             'Reducao significativa da expectativa de vida'
         ]
-    ;   Classificacao = 'Obesidade Grau III (Obesidade Mórbida)',
+    ;   Classificacao = 'Obesidade Grau III (Obesidade Morbida)',
         Riscos = [
             'Extremo risco de doencas cardiovasculares', 
             'Diabetes tipo 2 com complicacoes', 
